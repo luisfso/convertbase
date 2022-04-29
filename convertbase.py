@@ -2,7 +2,7 @@
 import time
 
 def dec2any():
-    dec = float(input("quanl valor decimal vc deseja converter??(por favor, digite um numero qualquer!) "))
+    dec = float(input("qual valor decimal vc deseja converter??(por favor, digite um numero qualquer!) "))
     base_final = int(input("qual a base final? "))
     limite = int(input("qual o limete que deseja parar caso gere uma dizima? "))
     count=0
@@ -18,40 +18,39 @@ def dec2any():
     numero_final = ''
 #    print("parte inteira=%d",inteiro)
     while(inteiro!=0):
-	if(inteiro<base_final):
-		numero_final_temp.append(dic[inteiro])
-		break	
-	numero_final_temp.append(dic[inteiro%base_final])
-	inteiro = inteiro/base_final
-#	print(inteiro)
-	time.sleep(0.1)
-	count=count+1
-	if(count==10):
-		break
-
+        if(inteiro<base_final):
+                numero_final_temp.append(dic[int(inteiro)])
+                break
+        numero_final_temp.append(dic[int(inteiro%base_final)])
+        inteiro = inteiro/base_final
+#       print(inteiro)
+        time.sleep(0.1)
+        count=count+1
+        if(count==10):
+        	break
 #    print(numero_final_temp)
     count = 0
     if (inddot):
-	numero_final_frac.append(".")
+        numero_final_frac.append(".")
 #	print("dec= %f",dec)
-	frac = float(str(dec)[inddot:])
+        frac = float(str(dec)[inddot:])
 #	print("frac= %f",frac)
-	while(frac!=0.0):
-		aux = frac*base_final
-		numero_final_frac.append(str(int(aux)))
-		frac = float(str(aux)[str(aux).find("."):])
-#		print(frac)
-		count=count+1
-		if(count==limite):
-			break
-	
+        while(frac!=0.0):
+        	aux = frac*base_final
+        	numero_final_frac.append(str(int(aux)))
+        	frac = float(str(aux)[str(aux).find("."):])
+#       	print(frac)
+        	count=count+1
+        	if(count==limite):
+        		break
+        
     numero_final_temp.reverse()
 #    print(numero_final_temp)
 #    print(numero_final_frac)
     for a in numero_final_temp:
-	imprimir = imprimir + a
+        imprimir = imprimir + a
     for a in numero_final_frac:
-	imprimir = imprimir + a
+        imprimir = imprimir + a
     print("o numero "+str(dec)+ " na base " +str(base_final) +" eh "+str(imprimir))
 #numero_final_temp.append(int(dec)%base_final)
     
